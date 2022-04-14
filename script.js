@@ -1,4 +1,10 @@
-var data = require('C:\Users\ylann\OneDrive\Documents\ylann\Projet perso NSI\site test de style\Projet site styler\Essaie 3 - Login\data.json')
+var data = [{
+    "Email":"ylann09.18@gmail.com",
+    "Password":"ouais"
+    }, {
+    "Email": "random@free.com",
+    "Password": "random_too"
+}]    
 
 function identification() {
     var identification = false;
@@ -35,11 +41,21 @@ function identification() {
 }
 
 function NewPage() {
+    let contener = document.createElement("div")
+    contener.setAttribute("class","link_contener")
+    let position = document.getElementsByTagName("footer")[0]
+    position.insertAdjacentElement("beforebegin",contener)
+    linkApp("Map site","file:///C:/Users/ylann/OneDrive/Documents/ylann/Projet%20perso%20NSI/site%20test%20de%20style/Projet%20site%20styler/Essaie%202%20-%20Google%20Map/index.html");
+    linkApp("Quizz App","file:///C:/Users/ylann/OneDrive/Documents/ylann/Projet%20perso%20NSI/site%20test%20de%20style/Projet%20site%20styler/Essaie%201-2/index.html")
+}
+
+function linkApp(text_content,link_) {
+    let contener = document.getElementsByClassName("link_contener")[0]
+
     let link = document.createElement("a")
-    link.setAttribute("href","file:///C:/Users/ylann/OneDrive/Documents/ylann/Projet%20perso%20NSI/site%20test%20de%20style/Projet%20site%20styler/Essaie%202%20-%20Google%20Map/index.html")
-    link.textContent = "Go on app"
+    link.setAttribute("href",link_)
+    link.textContent = text_content
     link.setAttribute("target","_blank")
     link.setAttribute("class","link")
-    let body = document.body
-    body.appendChild(link)
+    contener.insertAdjacentElement("afterbegin",link)
 }
